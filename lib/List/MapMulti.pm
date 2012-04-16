@@ -8,7 +8,7 @@ no warnings qw/once void/;
 BEGIN
 {
 	$List::MapMulti::AUTHORITY = 'cpan:TOBYINK';
-	$List::MapMulti::VERSION   = '0.001';
+	$List::MapMulti::VERSION   = '0.002';
 	
 	# use this module if it's installed.
 	# don't panic if it's unavailable.
@@ -50,7 +50,7 @@ sub map_multi (&@)
 		
 		while (my @values = $iter->())
 		{
-			$_ = \@values;
+			#$_ = \@values;
 			push @results, $code->(@values);
 		}
 	}
@@ -76,7 +76,7 @@ use overload
 BEGIN
 {
 	$List::MapMulti::Iterator::AUTHORITY = 'cpan:TOBYINK';
-	$List::MapMulti::Iterator::VERSION   = '0.001';
+	$List::MapMulti::Iterator::VERSION   = '0.002';
 	
 	autovivification->unimport('warn');
 }
