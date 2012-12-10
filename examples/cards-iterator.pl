@@ -10,15 +10,25 @@ my $iter = iterator_multi \@numbers, \@suits;
 while (my ($number, $suit) = $iter->())
 {
 	say "$number of $suit";
-#	say to_json([ $iter->current_indices ]);
-#	
-#	if ($number eq 'Queen')
-#	{
-#		$iter->next_indices(11,2);
-#	}
-#	if ($number eq 'Jack')
-#	{
-#		my @curr = $iter->current;
-#		$iter->current('Knave', $curr[1]);
-#	}
+	last if $number eq 'King' && $suit eq 'Spades';
 }
+
+=head1 DESCRIPTION
+
+Uses C<iterator_multi> to combines a list of numbers with a list of suits,
+generating a pack of playing cards.
+
+Shows how C<iterator_multi> allows the use of loop control statements (e.g.
+C<last>).
+
+=head1 AUTHOR
+
+Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
+
+=head1 COPYRIGHT AND LICENCE
+
+This software is copyright (c) 2012 by Toby Inkster.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
