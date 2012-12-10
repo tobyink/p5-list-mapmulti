@@ -1,0 +1,9 @@
+# This file provides instructions for packaging.
+
+`List-MapMulti`
+	perl_version_from m`List::MapMulti`;
+	version_from      m`List::MapMulti`;
+	readme_from       m`List::MapMulti`;
+	test_requires     p`Test::More 0.61`;
+	recommends        p`autovivification`;
+.

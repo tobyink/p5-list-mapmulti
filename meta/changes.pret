@@ -1,0 +1,11 @@
+# This file acts as the project's changelog.
+
+`List-MapMulti 0.001 cpan:TOBYINK`
+	issued  2012-03-23;
+	label   "Initial release".
+
+`List-MapMulti 0.002 cpan:TOBYINK`
+	issued  2012-04-16;
+	changeset [
+		item "Make $_ work as documented within a mapm block."^^Bugfix;
+	].
