@@ -28,6 +28,6 @@ f`README`
 	dc:license <http://dev.perl.org/licenses/>.
 
 f`Changes`
-	dc:source m`meta/changes.pret`;
+	dc:source f`meta/changes.pret`;
 	dc:rightsHolder cpan:TOBYINK;
 	dc:license <http://dev.perl.org/licenses/>.
