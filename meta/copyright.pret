@@ -21,3 +21,13 @@ f`meta/makefile.pret`
 f`meta/people.pret`
 	dc:rightsHolder cpan:TOBYINK;
 	dc:license <http://dev.perl.org/licenses/>.
+
+f`README`
+	dc:source m`List::MapMulti`;
+	dc:rightsHolder cpan:TOBYINK;
+	dc:license <http://dev.perl.org/licenses/>.
+
+f`Changes`
+	dc:source m`meta/changes.pret`;
+	dc:rightsHolder cpan:TOBYINK;
+	dc:license <http://dev.perl.org/licenses/>.
