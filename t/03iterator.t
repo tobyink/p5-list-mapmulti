@@ -1,4 +1,7 @@
+use strict;
+use warnings FATAL => 'all';
 use Test::More tests => 2;
+
 use List::MapMulti 'iterator_multi';
 
 my @numbers = (2..10, qw/Jack Queen King Ace/);
@@ -11,7 +14,7 @@ while (my ($n, $s) = $iter->())
 {
 	$got .= "$n of $s|";
 
-	if ($n==6 and $s eq 'Hearts')
+	if ($n eq 6 and $s eq 'Hearts')
 	{
 		is_deeply(
 			[$iter->current_indices],

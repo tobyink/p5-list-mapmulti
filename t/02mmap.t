@@ -1,4 +1,7 @@
+use strict;
+use warnings FATAL => 'all';
 use Test::More tests => 2;
+
 use List::MapMulti;
 
 my @numbers = (2..10, qw/Jack Queen King Ace/);
