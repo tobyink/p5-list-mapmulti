@@ -96,13 +96,20 @@ sub new
 	
 	_array_check(\@arrays);
 	
-	bless {
+	my $self = bless {
 		arrays          => \@arrays,
 		lengths         => [ map { ;scalar @$_ } @arrays ],
 		next_indices    => [ map { ;0 } @arrays ],
 		current_indices => undef,
 		last            => 0,
 	}, $class;
+	
+	for my $arr (@arrays)
+	{
+		$self->{'last'}++ unless scalar @$arr;
+	}
+	
+	return $self;
 }
 
 sub _array_check
