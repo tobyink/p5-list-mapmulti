@@ -30,7 +30,7 @@ BEGIN {
 		'standard' => \@EXPORT,
 		'default'  => \@EXPORT,
 		'nothing'  => [],
-		);
+	);
 }
 
 sub iterator_multi
@@ -46,11 +46,20 @@ sub map_multi (&@)
 	if (@arrays)
 	{
 		my $iter = iterator_multi(@arrays);
+		
 		local $_ = $iter;
+
+		# Localise $a, $b
+		my ( $caller_a, $caller_b ) = do {
+			my $pkg = caller;
+			no strict 'refs';
+			\*{$pkg.'::a'}, \*{$pkg.'::b'};
+		};
 		
 		while (my @values = $iter->())
 		{
-			#$_ = \@values;
+			no strict 'refs';
+			(*$caller_a, *$caller_b) = \( @values[0, 1] );			
 			push @results, $code->(@values);
 		}
 	}
@@ -71,7 +80,7 @@ use Carp qw/carp croak/;
 use overload
 	'&{}' => sub { my $self = shift; sub { $self->next } },
 	'@{}' => sub { my $self = shift; [ $self->current ] },
-	;
+;
 
 BEGIN
 {
@@ -245,6 +254,11 @@ loop.
 Note that within the codeblock, the items from each list are available
 as C<< $_[0] >>, C<< $_[1] >>, etc. The C<< $_ >> variable is set to a
 List::MapMulti::Iterator object which is used internally by C<map_multi>.
+
+For the special (but common) case where you're just mapping over two lists,
+C<< $a >> and C<< $b >> are aliased to C<< $_[0] >> and C<< $_[1] >>. You
+may need to do C<< our ($a, $b) >> to suppress warnings about variables
+being used only once.
 
 C<mapm> is exported by default, but C<map_multi> needs to be requested
 explicitly.
