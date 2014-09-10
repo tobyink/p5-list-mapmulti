@@ -8,7 +8,7 @@ no warnings qw/once void/;
 BEGIN
 {
 	$List::MapMulti::AUTHORITY = 'cpan:TOBYINK';
-	$List::MapMulti::VERSION   = '0.003';
+	$List::MapMulti::VERSION   = '0.004';
 	
 	# use this module if it's installed.
 	# don't panic if it's unavailable.
@@ -85,7 +85,7 @@ use overload
 BEGIN
 {
 	$List::MapMulti::Iterator::AUTHORITY = 'cpan:TOBYINK';
-	$List::MapMulti::Iterator::VERSION   = '0.003';
+	$List::MapMulti::Iterator::VERSION   = '0.004';
 	
 	autovivification->unimport('warn');
 }
